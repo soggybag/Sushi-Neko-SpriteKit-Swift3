@@ -27,13 +27,10 @@ override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 ```
 override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     /* Called when a touch begins */
->    
     /* We only need a single touch here */
-    let touch = touches.first!
->    
+    let touch = touches.first! 
     /* Get touch position in scene */
-    let location = touch.location(in: self)
->    
+    let location = touch.location(in: self)   
     /* Was touch on left/right hand side of screen? */
     if location.x > size.width / 2 {
         character.side = .right
