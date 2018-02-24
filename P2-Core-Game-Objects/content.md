@@ -310,6 +310,8 @@ class Character: SKSpriteNode {
 After the *SushiPiece* setup, this code should be fairly clear. There is no need to implement a handler for the
 `.none` enum case as the cat can only be on the `.left` or the `.right`.
 
+Set the Custom class for the Cat to `Character` in `GameScene.sks`. This is the same as setting the Custom class for the `SushiPiece` as you did earlier. 
+
 Next you need code to connect the cat, see if you can do this yourself. The process is the same as *sushiBasePiece*,
 just don't forget the name of this class :]
 
@@ -326,7 +328,7 @@ var character: Character!
 >
 ```
 /* Connect game objects */
-character = childNode(withName: "character") as! Character
+character = childNode(withName: "Character") as! Character
 ```
 >
 
