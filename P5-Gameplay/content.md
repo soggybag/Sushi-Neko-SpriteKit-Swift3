@@ -61,7 +61,7 @@ When should you change the GameState change from `.title` to `.ready`? Let's add
 
 > [action]
 > Open *GameScene.sks* and drag *button.png* to the bottom-middle of the scene, just below the sushi base.
-> Set *Name* to `playButton`, change *Custom Class* to `MSButtonNode`.
+> Set *Name* to `playButton`, change *Custom Class* to `MSButtonNode`. Set the Z position to 999. 
 
 <!-- -->
 
@@ -149,18 +149,15 @@ the player has been hit and Game over.
 /* Grab sushi piece on top of the base sushi piece, it will always be 'first' */
 let firstPiece = sushiTower.first as SushiPiece!
 ```
-> Add this
+> Add this below the line above. 
 ```
-/* Check character side against sushi piece side (this is our death collision check)*/
-if character.side == firstPiece?.side {
->        
+/* Check character side against sushi piece side (this is our death collision check) */
+if character.side == firstPiece?.side {      
     /* Drop all the sushi pieces down a place (visually) */
     for sushiPiece in sushiTower {
         sushiPiece.run(SKAction.move(by: CGVector(dx: 0, dy: -55), duration: 0.10))
-    }
->        
-    gameOver()
->        
+    }      
+    gameOver()      
     /* No need to continue as player dead */
     return
 }
@@ -187,31 +184,23 @@ Now you need to add a *gameOver* method, you will want to:
 ```
 func gameOver() {
     /* Game over! */
->    
-    state = .gameOver
->    
+    state = .gameOver  
     /* Turn all the sushi pieces red*/
     for sushiPiece in sushiTower {
         sushiPiece.run(SKAction.colorize(with: UIColor.red, colorBlendFactor: 1.0, duration: 0.50))
-    }
->    
+    }    
         /* Make the player turn red */
-        character.run(SKAction.colorize(with: UIColor.red, colorBlendFactor: 1.0, duration: 0.50))
->    
+        character.run(SKAction.colorize(with: UIColor.red, colorBlendFactor: 1.0, duration: 0.50))   
         /* Change play button selection handler */
-        playButton.selectedHandler = {
->            
+        playButton.selectedHandler = {           
         /* Grab reference to the SpriteKit view */
-        let skView = self.view as SKView!
->            
+        let skView = self.view as SKView!           
         /* Load Game scene */
         guard let scene = GameScene(fileNamed:"GameScene") as GameScene! else {
             return
-        }
->            
+        }           
         /* Ensure correct aspect mode */
-        scene.scaleMode = .aspectFill
->        
+        scene.scaleMode = .aspectFill       
         /* Restart GameScene */
         skView?.presentScene(scene)
     }
