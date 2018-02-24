@@ -113,23 +113,18 @@ Next up you will create a custom sushi class called *SushiPiece*
 >
 ```
 import SpriteKit
->
-class SushiPiece: SKSpriteNode {
->    
+class SushiPiece: SKSpriteNode {    
     /* Chopsticks objects */
     var rightChopstick: SKSpriteNode!
-    var leftChopstick: SKSpriteNode!
->    
+    var leftChopstick: SKSpriteNode!    
     /* You are required to implement this for your subclass to work */
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
-    }
->    
+    }    
     /* You are required to implement this for your subclass to work */
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
->    
+    }    
 }
 ```
 >
