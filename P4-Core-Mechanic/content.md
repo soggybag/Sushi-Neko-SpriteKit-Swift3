@@ -127,9 +127,8 @@ Let's tackle removing and adding sushi before applying the visual polish.
 ```
 /* Remove from sushi tower array */
 sushiTower.removeFirst()
->
 /* Add a new sushi piece to the top of the sushi tower*/
-addRandomPieces(1)
+addRandomPieces(total: 1)
 ```
 >
 
@@ -146,8 +145,7 @@ are not removing the sushi visually from the scene.
 if let firstPiece = sushiTower.first as SushiPiece! {
     /* Remove from sushi tower array */
     sushiTower.removeFirst()
-    firstPiece.removeFromParent()
-    
+    firstPiece.removeFromParent() 
     /* Add a new sushi piece to the top of the sushi tower */
     addRandomPieces(total: 1)
 }
@@ -230,21 +228,16 @@ facilitate this.
 ```
 func flip(_ side: Side) {
    /* Flip the sushi out of the screen */
->   
-   var actionName: String = ""
->   
+   var actionName: String = "" 
    if side == .left {
       actionName = "FlipRight"
    } else if side == .right {
       actionName = "FlipLeft"
-   }
->   
+   }  
    /* Load appropriate action */
-   let flip = SKAction(named: actionName)!
->   
+   let flip = SKAction(named: actionName)!  
    /* Create a node removal action */
-   let remove = SKAction.removeFromParent()
->   
+   let remove = SKAction.removeFromParent()  
    /* Build sequence, flip then remove from scene */
    let sequence = SKAction.sequence([flip,remove])
    run(sequence)
