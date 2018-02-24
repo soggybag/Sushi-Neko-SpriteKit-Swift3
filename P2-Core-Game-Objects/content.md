@@ -153,9 +153,6 @@ Let's setup a function to handle this.
 >
 ```
 func connectChopsticks() {
-  /* Connect our child chopstick nodes */
->
-  func connectChopsticks() {
     /* Connect our child chopstick nodes */
     rightChopstick = childNode(withName: "rightChopstick") as! SKSpriteNode
     leftChopstick = childNode(withName: "leftChopstick") as! SKSpriteNode
@@ -230,7 +227,7 @@ your game.
 ```
 override func didMove(to view: SKView) {
     super.didMove(to: view)
->
+    //
 }
 ```
 >
@@ -284,9 +281,7 @@ that you will want to track the *side* of the cat.
 >
 ```
 import SpriteKit
->
 class Character: SKSpriteNode {
->
     /* Character side */
     var side: Side = .left {
         didSet {
@@ -299,13 +294,11 @@ class Character: SKSpriteNode {
                 position.x = 252
             }
         }
-    }
->    
+    }   
     /* You are required to implement this for your subclass to work */
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
     }
->
     /* You are required to implement this for your subclass to work */
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -315,9 +308,9 @@ class Character: SKSpriteNode {
 >
 
 After the *SushiPiece* setup, this code should be fairly clear. There is no need to implement a handler for the
-`.none` enum case as the cat can only every be on the `.left` or the `.right`.
+`.none` enum case as the cat can only be on the `.left` or the `.right`.
 
-Next you need to code connect the cat, see if you can do this yourself. The process is the same as *sushiBasePiece*,
+Next you need code to connect the cat, see if you can do this yourself. The process is the same as *sushiBasePiece*,
 just don't forget the name of this class :]
 
 > [solution]
