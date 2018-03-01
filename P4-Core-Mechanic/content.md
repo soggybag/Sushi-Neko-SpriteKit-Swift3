@@ -97,14 +97,18 @@ Let's enhance the punch with a swipe sound effect.  You can tie this into the pu
 You will run this custom **Punch** action whenever the *side* is set for the cat.
 
 > [action]
-> Open *Character.swift*, add the following inside the *didSet* observer after the `if/else` statement block.
+> Open *Character.swift*, at the top of the class add the following.
 >
 ```
-/* Load/Run the punch action */
 let punch = SKAction(named: "Punch")!
+```
+
+This will ensure we only load the action once and store it on the character class. Once you have done that, add the following snippet inside the *didSet* observer after the `if/else` statement block.
+```
+/* Run the punch action */
 run(punch)
 ```
->
+The above code runs our punch action when the cat changes sides.
 
 Run the game. Your cat should be able to punch now!
 
